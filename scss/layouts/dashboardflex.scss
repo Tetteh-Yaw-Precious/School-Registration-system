@@ -1,0 +1,18 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/functions.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+@use '../base/typography.scss' as *;
+
+.dashboardflex-ct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  nav {
+    width: 20%;
+    background-color: $blue;
+  }
+  .maindashboard-ct {
+    width: 80%;
+  }
+}

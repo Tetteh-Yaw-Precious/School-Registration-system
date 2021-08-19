@@ -1,0 +1,500 @@
+/*
+0 - 600px: Phone
+600 - 900px: Tablet portrait
+900 - 1200px: Tablet Landscape
+[1200 - 1800] is where our normal styles apply
+1800px + : Big desktop
+
+
+/*
+$breakpoint argument choices:
+--phone
+--tab-port
+--tab-land
+--big-desktop
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Raleway", sans-serif;
+  color: #333;
+  font-size: 98%;
+}
+@media (max-width: 37.5em) {
+  * {
+    font-size: 100%;
+  }
+}
+@media (max-width: 75em) {
+  * {
+    font-size: 97%;
+  }
+}
+@media (max-width: 56.25em) {
+  * {
+    font-size: 96%;
+  }
+}
+@media (min-wdith: 112.5em) {
+  * {
+    font-size: 100%;
+  }
+}
+* body {
+  box-sizing: border-box;
+  background-color: #f6f8fa;
+}
+* h1 {
+  font-size: 1.75rem;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+* h2 {
+  letter-spacing: 3%;
+  font-size: 1.125rem;
+  line-height: 2.4375rem;
+  letter-spacing: -0.04em;
+}
+* h3 {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  padding: 0.25rem 0.125rem;
+  margin: 0 0 0.9375rem 0;
+  width: 20%;
+}
+* h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #13266a;
+  margin: 0;
+}
+* h5 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: #13266a;
+}
+* h6 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: #13266a;
+}
+* p {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.25rem;
+  color: #08112f;
+}
+* li {
+  list-style-type: none;
+}
+* a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+* input {
+  border: none !important;
+  background-color: none;
+  border-bottom: 0.125rem solid #C3C5CC !important;
+  outline: none !important;
+  padding-bottom: 0.3125rem;
+}
+* label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #08112f;
+}
+* .btn-ct {
+  width: 80%;
+  min-height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+* .btn {
+  padding: 0.625rem 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: #f45110;
+}
+* .btn:hover {
+  background-color: #f5733f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+textarea {
+  resize: none;
+  border-radius: 3.125rem;
+  padding-left: 1.6rem;
+  padding-top: 1rem;
+  border: none;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+@keyframes slidefrombottom {
+  0% {
+    transform: translateY(rem(15));
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.cardShadow {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dashboardflex-ct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+.dashboardflex-ct nav {
+  width: 20%;
+  background-color: #13266a;
+}
+.dashboardflex-ct .maindashboard-ct {
+  width: 80%;
+}
+
+.dashboardgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 10% 30% 30% 20%;
+  grid-template-areas: "head head" "acc det" "csinfo det" "btn det";
+  grid-row-gap: 1.25rem;
+  grid-column-gap: 0.9375rem;
+  padding: 2% 5%;
+  border: 1px solid green !important;
+}
+
+.studD-content {
+  display: grid;
+  padding: 2% 5%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1.5625rem repeat(7, 3.125rem);
+  grid-template-areas: "one one one" "two three four" "five six seven" "eight nine ten" "eleven twelve twelve" "thirteen thirteen thirteen" "fourteen fifteen fifteen" "sixteen seventeen seventeen";
+  grid-gap: 0.3125rem;
+}
+.studD-content div {
+  display: flex;
+  flex-direction: column;
+}
+.studD-content div .item-ct1 {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+.studD-content div .item-ct1 h6 {
+  font-size: 0.8125rem;
+  color: #08112f;
+}
+.studD-content div .item-ct2 {
+  height: 50%;
+  font-size: 0.75rem;
+}
+.studD-content div .item-ct2 p {
+  font-family: "Poppins", sans-serif;
+}
+.studD-content .grid-item-1 {
+  grid-area: one;
+  display: flex;
+  align-items: flex-start;
+}
+.studD-content .grid-item-2 {
+  grid-area: two;
+}
+.studD-content .grid-item-3 {
+  grid-area: three;
+}
+.studD-content .grid-item-4 {
+  grid-area: four;
+}
+.studD-content .grid-item-5 {
+  grid-area: five;
+}
+.studD-content .grid-item-6 {
+  grid-area: six;
+}
+.studD-content .grid-item-7 {
+  grid-area: seven;
+}
+.studD-content .grid-item-8 {
+  grid-area: eight;
+}
+.studD-content .grid-item-9 {
+  grid-area: nine;
+}
+.studD-content .grid-item-10 {
+  grid-area: ten;
+}
+.studD-content .grid-item-11 {
+  grid-area: eleven;
+}
+.studD-content .grid-item-12 {
+  grid-area: twelve;
+}
+.studD-content .grid-item-13 {
+  grid-area: thirteen;
+}
+.studD-content .grid-item-14 {
+  grid-area: fourteen;
+}
+.studD-content .grid-item-15 {
+  grid-area: fifteen;
+}
+.studD-content .grid-item-16 {
+  grid-area: sixteen;
+}
+.studD-content .grid-item-17 {
+  grid-area: seventeen;
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-wdith: 112.5em) {
+  .login-container {
+    border: 5px solid green;
+  }
+}
+.login-container .login-container--inner {
+  width: 70%;
+  height: 70%;
+  display: flex;
+}
+@media (max-width: 37.5em) {
+  .login-container .login-container--inner {
+    height: 60%;
+    width: 100%;
+    border: 1px solid green;
+  }
+}
+.login-container .login-container--inner .graduate-img-ct {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+@media (max-width: 37.5em) {
+  .login-container .login-container--inner .graduate-img-ct {
+    width: 20%;
+  }
+}
+@media (max-width: 25em) {
+  .login-container .login-container--inner .graduate-img-ct {
+    width: 15%;
+  }
+}
+.login-container .login-container--inner .graduate-img-ct img {
+  width: 16.25rem;
+  position: relative;
+  left: 6.875rem;
+  z-index: 2;
+}
+@media (max-width: 37.5em) {
+  .login-container .login-container--inner .graduate-img-ct img {
+    width: 12.5rem;
+    left: 5rem;
+  }
+}
+@media (max-width: 25em) {
+  .login-container .login-container--inner .graduate-img-ct img {
+    width: 13.125rem;
+    left: 4.375rem;
+  }
+}
+.login-container .login-container--inner .form-ct {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  z-index: 1;
+}
+@media (max-width: 37.5em) {
+  .login-container .login-container--inner .form-ct {
+    width: 90%;
+  }
+}
+.login-container .login-container--inner .form-ct .form-img-ct {
+  height: 20%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 18%;
+}
+.login-container .login-container--inner .form-ct .form-img-ct img {
+  width: 40%;
+}
+.login-container .login-container--inner .form-ct form {
+  height: 75%;
+  padding-top: 1.5rem;
+  padding-left: 10%;
+}
+.login-container .login-container--inner .form-ct form .heading-ct {
+  padding-left: 10%;
+}
+.login-container .login-container--inner .form-ct form .input-ct {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  width: 80%;
+  min-height: 45%;
+  justify-content: space-between;
+}
+.login-container .login-container--inner .form-ct form .input-ct .username-ct,
+.login-container .login-container--inner .form-ct form .input-ct .password-ct {
+  display: flex;
+  flex-direction: column;
+  min-height: 20% !important;
+}
+.login-container .login-container--inner .form-ct form .input-ct .username-ct label,
+.login-container .login-container--inner .form-ct form .input-ct .password-ct label {
+  margin: 0 0 0.7rem 0;
+}
+.login-container .login-container--inner .form-ct form .btn-ct {
+  padding-left: 10%;
+}
+.login-container .login-container--inner .form-ct .form-footer {
+  background-color: #13266a;
+  min-height: 5%;
+  transform: translateY(1.8125rem);
+  opacity: 0;
+  animation: slidefrombottom 0.5s ease-in forwards;
+}
+.login-container .login-container--inner .cloud-img-ct {
+  width: 20%;
+}
+@media (max-width: 25em) {
+  .login-container .login-container--inner .cloud-img-ct {
+    width: 5%;
+  }
+}
+.login-container .login-container--inner .cloud-img-ct img {
+  width: 25rem;
+  position: absolute;
+  top: 0.25rem;
+  right: 12.5rem;
+}
+@media (max-width: 25em) {
+  .login-container .login-container--inner .cloud-img-ct img {
+    width: width(25rem);
+  }
+}
+
+body {
+  background-color: #f6f8fa;
+}
+
+.welcome {
+  grid-area: head;
+  display: flex;
+}
+.welcome .congrats-container {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+.welcome .congrats-container .congrats-container-ct {
+  height: 100%;
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+.welcome .congrats-container .congrats-container-ct .cg-img-ct {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.welcome .congrats-container .congrats-container-ct .cg-img-ct img {
+  width: 90%;
+}
+.welcome .congrats-container .congrats-container-ct h4 {
+  font-family: "Marck Script", cursive;
+  padding: 0.4rem;
+}
+.welcome .congrats-container .congrats-container-ct .welcomemess {
+  font-family: "Raleway", sans-serif;
+  color: #08112f;
+  font-weight: 500;
+}
+.welcome .studentimagedropdown {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.welcome .studentimagedropdown .stu-img-dpdwn-ct {
+  display: flex;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 45%;
+}
+.welcome .studentimagedropdown .stu-img-dpdwn-ct .student-img-ct {
+  width: 2.8125rem;
+  height: 70%;
+  border-radius: 312.5rem;
+  display: flex;
+}
+
+.studentAcc {
+  grid-area: acc;
+}
+
+.studD {
+  grid-area: det;
+}
+.studD .studD-heading {
+  height: 6%;
+  background-color: #13266a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.studD .studD-heading h4 {
+  color: white;
+  font-size: 1.125rem;
+}
+.studD .studD-content {
+  height: 85%;
+}
+.studD .studD-upload {
+  height: 10%;
+}
+
+.courseinfo {
+  grid-area: csinfo;
+}
+
+.button {
+  grid-area: btn;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+/*# sourceMappingURL=/main.e5703e5d.css.map */
