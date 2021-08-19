@@ -1,19 +1,24 @@
 const mailField = document.querySelector(".emailfield");
 const passwordField = document.querySelector(".passwordfield");
 const loginForm = document.querySelector(".loginform");
-console.log(loginForm);
 
 loginForm.addEventListener("click", (e) => {
-  e.preventDefault();
+  e.preventDefault()
   const email = mailField.value;
   const password = passwordField.value;
 
-  auth
-    .createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      console.log("successfully signed up");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  if (e.target.classList.contains('submit')) {
+    auth.signInWithEmailAndPassword(email, password)
+      .then((data) => {
+        console.log(data);
+        auth.onAuthStateChanged(function (currentUser) {
+          if (currentUser) {
+            window.location.href = '../src/dashboard.html'
+          }
+        });
+        loginForm.reset()
+      })
+      .catch(err => console.log(err));
+  }
 });
