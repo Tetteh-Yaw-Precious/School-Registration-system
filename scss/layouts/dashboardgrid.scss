@@ -6,7 +6,7 @@
 .dashboardgrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 10% 30% 30% 20%;
+  grid-template-rows: 10% 40% 30% 10%;
   grid-template-areas:
     "head head"
     "acc det"

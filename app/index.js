@@ -1,24 +1,19 @@
-const mailField = document.querySelector(".emailfield");
-const passwordField = document.querySelector(".passwordfield");
-const loginForm = document.querySelector(".loginform");
-
-loginForm.addEventListener("click", (e) => {
-  e.preventDefault()
-  const email = mailField.value;
-  const password = passwordField.value;
 
 
-  if (e.target.classList.contains('submit')) {
-    auth.signInWithEmailAndPassword(email, password)
-      .then((data) => {
-        console.log(data);
-        auth.onAuthStateChanged(function (currentUser) {
-          if (currentUser) {
-            window.location.href = '../src/dashboard.html'
-          }
-          loginForm.reset()
-        });
-      })
-      .catch(err => console.log(err));
-  }
-});
+//building doughnut
+let moneyGraph = document.getElementById('moneyGraph').getContext('2d')
+let massPopChart = new Chart(moneyGraph, {
+    type: 'doughnut',
+    data:{
+        labels:['remaining balance', 'paid',],
+        datasets:[{
+            label: "Population",
+            data:[
+                40,
+                60,
+            ],
+            backgroundColor:['#13266a','#0fb60c']
+        }]
+    },
+    options: []
+})

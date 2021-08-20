@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kTU|Student Dashboard</title>
   <link rel="stylesheet" href="../css/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+  integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -34,7 +37,17 @@
           </div>
         </div>
       </div>
-      <div class="studentAcc cardShadow"></div>
+      <div class="studentAcc cardShadow">
+        <div class="stAcc-heading">
+          <h5>Student Account</h5>
+        </div>
+        <div class="stAcc-graph">
+          <div class="canvas-ct">
+            <canvas id="moneyGraph"></canvas>
+          </div>
+        </div>
+        <div class="stAcc-info"></div>
+      </div>
       <div class="studD cardShadow">
         <div class="studD-heading">
           <h4>Student Details</h4>
@@ -199,19 +212,27 @@
           </div>
         </div>
         <div class="ci-4">
-          <div class="coursei-1"><h6>2024</h6></div>
+          <div class="coursei-1">
+            <h6>2024</h6>
+          </div>
           <div class="coursei-2"></div>
           <div class="coursei-3">Completion year</div>
         </div>
         <div class="ci-5">
-          <div class="coursei-1"><h6>Comp.Sci Dep.</h6></div>
+          <div class="coursei-1">
+            <h6>Comp.Sci Dep.</h6>
+          </div>
           <div class="coursei-2"></div>
           <div class="coursei-3">Department</div>
         </div>
         <div class="ci-6">
-          <div class="coursei-1"><h6>Computer Science Department</h6></div>
+          <div class="coursei-1">
+            <h6>Computer Science Department</h6>
+          </div>
           <div class="coursei-2"></div>
-          <div class="coursei-3"><p>Computer Science</p></div>
+          <div class="coursei-3">
+            <p>Computer Science</p>
+          </div>
         </div>
       </div>
       <div class="item button  btn-ct">
@@ -219,7 +240,9 @@
       </div>
     </div>
   </div>
-
+<script>
+  
+</script>
 
 
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>

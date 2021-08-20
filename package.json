@@ -13,10 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^3.5.1",
     "firebase": "^8.9.1"
   },
   "devDependencies": {
-    "sass": "^1.37.5",
-    "dart-sass": "^1.25.0"
+    "dart-sass": "^1.25.0",
+    "sass": "^1.37.5"
   }
 }
