@@ -16,8 +16,8 @@ loginForm.addEventListener("click", (e) => {
           if (currentUser) {
             window.location.href = '../src/dashboard.html'
           }
+          loginForm.reset()
         });
-        loginForm.reset()
       })
       .catch(err => console.log(err));
   }
