@@ -7,14 +7,15 @@ loginForm.addEventListener("click", (e) => {
   const email = mailField.value;
   const password = passwordField.value;
 
-
   if (e.target.classList.contains('submit')) {
     auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log(user);
+      .then(() => {
         auth.onAuthStateChanged(function (currentUser) {
           if (currentUser) {
-            window.location.href = '../src/dashboard.html'
+            //store email in localstorage
+            localStorage.setItem("email", email)
+            //redirect to dashboard page
+            location.href = '/src/dashboard.html'
           }
           loginForm.reset()
         });
