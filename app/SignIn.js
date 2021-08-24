@@ -1,6 +1,8 @@
+
 const mailField = document.querySelector(".emailfield");
 const passwordField = document.querySelector(".passwordfield");
 const loginForm = document.querySelector(".loginform");
+const loadingAnime = document.getElementById("loadingAnimation");
 
 loginForm.addEventListener("click", (e) => {
   e.preventDefault()
