@@ -1,4 +1,10 @@
-
+const dropdownicon = document.getElementById("dropdownarrow");
+const signout = document.querySelector(".signout");
+dropdownicon.addEventListener("click", e=>{
+    e.preventDefault;
+    signout.classList.toggle("display-active")
+})
+//toggling dropdown
 
 //building doughnut
 let moneyGraph = document.getElementById('moneyGraph').getContext('2d')
