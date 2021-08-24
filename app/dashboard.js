@@ -53,11 +53,11 @@ auth.onAuthStateChanged((user) => {
           if (data !== null) {
             setTimeout(() => {
               document.getElementById("loading").style.borderRight =
-                "5px solid white";
+                "5px solid #f45110";
             }, 100);
             setTimeout(() => {
               document.getElementById("loading").style.borderBottom =
-                "5px solid white";
+                "5px solid #f45110";
             }, 200);
           }
           setTimeout(() => {
