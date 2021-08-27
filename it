@@ -1,0 +1,74 @@
+[33mcommit f4a79fc730cfc59802437ebc1d64c26e469ae9b6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Thu Aug 26 10:07:05 2021 -0700
+
+    little updates
+
+[33mcommit 5927db963869decd3e0f60695ca56c5cabe455a8[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Wed Aug 25 12:10:51 2021 -0700
+
+    update to variables.scss
+
+[33mcommit bf2db659104e5118e23c4c7d57289180f3b23823[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Tue Aug 24 11:10:28 2021 -0700
+
+    ChartJs font changed
+
+[33mcommit 4dea90a7fcba39a42278133ec70833f01e81f112[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Tue Aug 24 09:09:24 2021 -0700
+
+    animated login page
+
+[33mcommit e4787a17b7999b93bf5d9f8180b9501519343dde[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Mon Aug 23 21:41:22 2021 -0700
+
+    worked on signout
+
+[33mcommit 64641b2f131c72247353256f0d27ce417df0f43e[m
+Merge: f1e909d 90cd38d
+Author: Tetteh Yaw Precious <52752056+Tetteh-Yaw-Precious@users.noreply.github.com>
+Date:   Mon Aug 23 19:00:50 2021 -0700
+
+    Merge pull request #1 from Tetteh-Yaw-Precious/solution-from-james
+    
+    solution for dynamic data
+
+[33mcommit 90cd38d8e85c282b767936e401e8a4a3d2cf329f[m[33m ([m[1;31morigin/solution-from-james[m[33m)[m
+Author: James Ofori Ayerakwa <jamesofoaye@gmail.com>
+Date:   Tue Aug 24 01:03:12 2021 +0000
+
+    solution for dynamic data
+
+[33mcommit f1e909d4f1e44f67634b4a03d086d3e7dbc65773[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Fri Aug 20 14:18:05 2021 +0000
+
+    integration of chartjs
+
+[33mcommit ad7c32cc0942abf4b55afb74de0215b85d0e595b[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Fri Aug 20 05:30:53 2021 +0000
+
+    styled courseinfo
+
+[33mcommit de0a5bc7e5ca06aef1540de05e8fbe39c254ab03[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Thu Aug 19 20:05:41 2021 +0000
+
+    firebase added
+
+[33mcommit 0d5830ebbbb8ab3fb109ebe9870b3a48adaacf83[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Thu Aug 19 04:48:45 2021 +0000
+
+    initialized project
+
+[33mcommit 162f75b795029b88c18d9e72ac32e92cd6f861ad[m
+Author: Tetteh Yaw Precious <precioustetteh38@gmail.com>
+Date:   Thu Aug 19 04:46:24 2021 +0000
+
+    Initial commit

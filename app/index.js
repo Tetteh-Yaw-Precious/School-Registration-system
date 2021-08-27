@@ -25,3 +25,4 @@ let massPopChart = new Chart(moneyGraph, {
   },
   options: [],
 });
+

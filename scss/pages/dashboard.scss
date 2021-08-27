@@ -78,7 +78,7 @@ body {
           position: absolute;
           padding: 0rem 2rem;
           top: 5.8rem;
-          right:4.3rem;
+          right: 4.3rem;
           background-color: white;
           padding: 0.5rem 0rem;
         }
@@ -121,17 +121,57 @@ body {
   display: flex;
   align-items: flex-start;
 }
-.paymentpopup{
-background-color: $ui-modal-bg;
+.paymentpopup {
+  background-color: #e0e0e0f7;
   width: 80%;
   height: 100vh;
   top: 0;
   position: absolute;
   margin-left: 20%;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .amount-ct{
+    width: 35%;
+    height: 30%;
+    .amountone{
+      height: 25%;
+      background-color: $blue;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      h6{
+        color: white;
+      }
+      a{
+        color: white;
+        font-weight: 700;
+        padding:rem(7) rem(10);
+        border-radius: 100%;
+        color: $blue;
+        background-color: white;
+      }
+
+    }
+    .amounttwo{
+      height: 60%;
+      border: 1px solid $blue;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 2% 4%;
+      label{
+        margin-bottom: .6rem;
+      }
+      input{
+        margin-bottom: .5rem;
+      }
+    }
+  }
 }
 
-.loadinganimation{
+.loadinganimation {
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -140,7 +180,7 @@ background-color: $ui-modal-bg;
   justify-content: center;
   align-items: center;
   top: 0;
-  .loading{
+  .loading {
     width: 2rem;
     height: 2rem;
     border-top: 5px solid $primary-orange;
@@ -148,8 +188,8 @@ background-color: $ui-modal-bg;
     border-radius: 100%;
     margin: auto;
     visibility: auto;
-    animation: spin .4s infinite linear;
-   }
+    animation: spin 0.4s infinite linear;
+  }
 }
 
 .display-active {

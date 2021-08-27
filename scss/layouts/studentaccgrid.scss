@@ -3,36 +3,85 @@
 @use '../abstracts/mixins.scss' as *;
 @use '../base/typography.scss' as *;
 
-.studentAcc{
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 13% 87%;
-    grid-template-areas: "one one"
+.studentAcc {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 13% 87%;
+  grid-template-areas:
+    "one one"
     "two three";
-    .stAcc-heading{
-        grid-area: one;
-        padding-left: 10%;
-        display: flex;
-        align-items: center;
-        h5{
-            border-bottom: rem(2) solid $blue;
-            padding-bottom: rem(4);
+  .stAcc-heading {
+    grid-area: one;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    h5 {
+      border-bottom: rem(2) solid $blue;
+      padding-bottom: rem(4);
+    }
+  }
+  .stAcc-graph {
+    grid-area: two;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    .canvas-ct {
+      display: flex;
+      height: 100%;
+      width: 75%;
+    }
+  }
+  .stAcc-info {
+    grid-area: three;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .fee-item {
+      padding: 0.1rem;
+      width: 100%;
+      min-height: 22%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h6 {
+        font-family: $poppinsFont;
+        font-size: rem(20);
+        span {
+          color: $blue;
+          font-family: $poppinsFont;
         }
+      }
+      p {
+        font-weight: 600;
+      }
     }
-    .stAcc-graph{
-        grid-area: two;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        .canvas-ct{
-            display: flex;
-            height: 100%;
-            width: 75%;
+    .eligiblefees-ct {
+      h6 {
+        color: $success;
+        span {
+          color: $success;
         }
+      }
+      p {
+        color: $success;
+      }
     }
-    .stAcc-info{
-        grid-area: three;
+    .noteligiblefees-ct {
+      height: 30%;
+      .np-heading {
+        padding: rem(2);
+        p {
+          font-weight: 400;
+          font-size: rem(13);
+          span{
+              color: $danger;
+          }
+        }
+      }
     }
+  }
 }

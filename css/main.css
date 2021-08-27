@@ -87,7 +87,7 @@ $breakpoint argument choices:
 }
 * p {
   font-family: "Raleway", sans-serif;
-  line-height: 1.25rem;
+  line-height: 0.9375rem;
   color: #08112f;
 }
 * li {
@@ -121,7 +121,7 @@ $breakpoint argument choices:
   width: 100%;
   color: white;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   background-color: #f45110;
 }
@@ -426,6 +426,51 @@ nav .nav-link-ct li a:hover {
 }
 .studentAcc .stAcc-info {
   grid-area: three;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.studentAcc .stAcc-info .fee-item {
+  padding: 0.1rem;
+  width: 100%;
+  min-height: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.studentAcc .stAcc-info .fee-item h6 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+}
+.studentAcc .stAcc-info .fee-item h6 span {
+  color: #13266a;
+  font-family: "Poppins", sans-serif;
+}
+.studentAcc .stAcc-info .fee-item p {
+  font-weight: 600;
+}
+.studentAcc .stAcc-info .eligiblefees-ct h6 {
+  color: #0fb60c;
+}
+.studentAcc .stAcc-info .eligiblefees-ct h6 span {
+  color: #0fb60c;
+}
+.studentAcc .stAcc-info .eligiblefees-ct p {
+  color: #0fb60c;
+}
+.studentAcc .stAcc-info .noteligiblefees-ct {
+  height: 30%;
+}
+.studentAcc .stAcc-info .noteligiblefees-ct .np-heading {
+  padding: 0.125rem;
+}
+.studentAcc .stAcc-info .noteligiblefees-ct .np-heading p {
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.studentAcc .stAcc-info .noteligiblefees-ct .np-heading p span {
+  color: #f41010;
 }
 
 .login-container {
@@ -676,13 +721,52 @@ body {
 }
 
 .paymentpopup {
-  background-color: rgba(195, 197, 204, 0.97);
+  background-color: #e0e0e0f7;
   width: 80%;
   height: 100vh;
   top: 0;
   position: absolute;
   margin-left: 20%;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paymentpopup .amount-ct {
+  width: 35%;
+  height: 30%;
+}
+.paymentpopup .amount-ct .amountone {
+  height: 25%;
+  background-color: #13266a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+.paymentpopup .amount-ct .amountone h6 {
+  color: white;
+}
+.paymentpopup .amount-ct .amountone a {
+  color: white;
+  font-weight: 700;
+  padding: 0.4375rem 0.625rem;
+  border-radius: 100%;
+  color: #13266a;
+  background-color: white;
+}
+.paymentpopup .amount-ct .amounttwo {
+  height: 60%;
+  border: 1px solid #13266a;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 4%;
+}
+.paymentpopup .amount-ct .amounttwo label {
+  margin-bottom: 0.6rem;
+}
+.paymentpopup .amount-ct .amounttwo input {
+  margin-bottom: 0.5rem;
 }
 
 .loadinganimation {

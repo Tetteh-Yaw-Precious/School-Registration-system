@@ -1,6 +1,8 @@
 //retrieve the email stored in localstorage
 const email = localStorage.getItem("email");
 const loadingAnime = document.getElementById("loadingAnimation");
+const payFeesBtn = document.getElementById("payfees");
+const proceedToPayment = document.getElementById("proceed");
 let data;
 auth.onAuthStateChanged((user) => {
   //if the user has signed in, go ahead and get the user data from the database
@@ -13,7 +15,6 @@ auth.onAuthStateChanged((user) => {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           data = doc.data();
-          console.log(data);
 
           //get their ids and insert the data into them
           document.getElementById("dob").innerHTML = data.dob;
@@ -46,10 +47,11 @@ auth.onAuthStateChanged((user) => {
           document.getElementById("programme").innerHTML = data.programme;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
-
+          document.getElementById("totalfees").innerHTML = data.totalfees;
+          localStorage.setItem("Tel", data.Tel);
+          localStorage.setItem("name", `${data.firstname} ${data.lastname}`);
           /*making perfect circle for animation and 
           removing animation from the page */
-
           if (data !== null) {
             setTimeout(() => {
               document.getElementById("loading").style.borderRight =
@@ -69,7 +71,7 @@ auth.onAuthStateChanged((user) => {
 });
 
 /**signing users out of the dashboard, clearing
- * localStorage and redirecting the back to the homepage
+ * localStorage and redirecting the user back to the homepage
  */
 signout.addEventListener("click", (e) => {
   e.preventDefault();
@@ -78,10 +80,56 @@ signout.addEventListener("click", (e) => {
     .then((user) => {
       if (user == null) {
         localStorage.clear();
-        location.href = "/src/index.html";
+        location.href = "/index.html";
       }
     })
     .catch((error) => {
       console.log(error);
     });
+});
+
+console.log(payFeesBtn);
+const payfeepopup = document.getElementById("paymentPopup");
+const enterAmount = document.getElementById("enteramount");
+//integrating flutterwave payment methods
+payFeesBtn.addEventListener("click", () => {
+  if (payfeepopup.classList.contains("display-active")) {
+    payfeepopup.classList.remove("display-active");
+  }
+});
+
+enterAmount.addEventListener("click", (e) => {
+  e.preventDefault;
+  console.log(e.target);
+  if (e.target.classList.contains("close")) {
+    payfeepopup.classList.add("display-active");
+  }
+});
+
+const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
+proceedToPayment.addEventListener("click", () => {
+  FlutterwaveCheckout({
+    public_key: pkey,
+    tx_ref: `COMPSCI ${Math.random() * 100000000000} + 1`,
+    amount: 10,
+    currency: "GHS",
+    country: "GH",
+    payment_options: "card,mobile_money_ghana",
+    customer: {
+      email: `${localStorage.getItem("email")}`,
+      phone_number: `${localStorage.getItem("Tel")}`,
+      name: `${localStorage.getItem("name")}`,
+    },
+    callback: function (data) {
+      console.log(data);
+    },
+    onclose: function () {
+      // close modal
+    },
+    customizations: {
+      title: "My store",
+      description: "Payment for items in cart",
+      logo: "https://assets.piedpiper.com/logo.png",
+    },
+  });
 });
