@@ -31,6 +31,15 @@ body {
       justify-content: center;
       align-items: center;
       @include respond(phone) {
+        justify-content: space-evenly;
+      }
+      .nav-open {
+        img {
+          display: none;
+          @include respond(phone) {
+            display: block;
+          }
+        }
       }
 
       .cg-img-ct {
@@ -42,6 +51,10 @@ body {
 
         img {
           width: 60%;
+          @include respond(phone) {
+            width: 100%;
+            justify-self: self-end;
+          }
         }
       }
 

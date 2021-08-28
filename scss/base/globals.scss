@@ -116,7 +116,7 @@
     background-color: $primary-orange;
   }
   .btn:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px rem(4) rem(4) rgba(0, 0, 0, 0.08);
   }
 }
 textarea {

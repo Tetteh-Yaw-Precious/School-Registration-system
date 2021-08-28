@@ -17,7 +17,7 @@
     "thirteen thirteen thirteen"
     "fourteen fifteen fifteen"
     "sixteen seventeen seventeen";
-  grid-gap: rem(5);
+  gap: rem(5);
   @include respond(phone) {
     display: grid;
     height: 100%;

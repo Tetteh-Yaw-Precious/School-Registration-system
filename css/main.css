@@ -127,7 +127,7 @@ $breakpoint argument choices:
   background-color: #f45110;
 }
 * .btn:hover {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.08);
 }
 
 textarea {
@@ -148,7 +148,7 @@ svg {
 
 @keyframes slidefrombottom {
   0% {
-    transform: translateY(rem(15));
+    transform: translateY(0.9375rem);
     opacity: 0;
   }
   100% {
@@ -162,6 +162,22 @@ svg {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes slidein {
+  from {
+    transform: translateX(-37.5rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-37.5rem);
   }
 }
 .cardShadow {
@@ -184,6 +200,47 @@ $breakpoint argument choices:
 --tab-land
 --big-desktop
 */
+@keyframes slidefrombottom {
+  0% {
+    transform: translateY(0.9375rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slidein {
+  from {
+    transform: translateX(-37.5rem);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-37.5rem);
+  }
+}
+@media (max-width: 37.5em) {
+  nav {
+    width: 100% !important;
+    position: absolute;
+    transform: translateX(-37.5rem);
+  }
+}
 nav .icon {
   display: flex;
   justify-content: flex-end;
@@ -192,11 +249,31 @@ nav .icon {
   height: 10%;
   visibility: hidden;
 }
+nav .icon .img {
+  cursor: pointer;
+}
+@media (max-width: 37.5em) {
+  nav .icon {
+    position: absolute;
+    cursor: pointer;
+    visibility: visible;
+    left: 4rem;
+    top: 4rem;
+    cursor: pointer !important;
+  }
+}
 nav .nav-link-ct {
   height: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+@media (max-width: 37.5em) {
+  nav .nav-link-ct {
+    width: 100%;
+    height: 100vh;
+  }
 }
 nav .nav-link-ct li {
   list-style: none;
@@ -220,7 +297,7 @@ nav .nav-link-ct li a:hover {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 @media (max-width: 37.5em) {
   .dashboardflex-ct {
@@ -234,11 +311,10 @@ nav .nav-link-ct li a:hover {
 @media (max-width: 37.5em) {
   .dashboardflex-ct nav {
     width: 100vh;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     position: absolute;
     z-index: 1;
-    display: none;
   }
 }
 .dashboardflex-ct .maindashboard-ct {
@@ -276,7 +352,7 @@ nav .nav-link-ct li a:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1.5625rem repeat(7, 3.125rem);
   grid-template-areas: "one one one" "two three four" "five six seven" "eight nine ten" "eleven twelve twelve" "thirteen thirteen thirteen" "fourteen fifteen fifteen" "sixteen seventeen seventeen";
-  grid-gap: 0.3125rem;
+  gap: 0.3125rem;
 }
 @media (max-width: 37.5em) {
   .studD-content {
@@ -721,6 +797,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 37.5em) {
+  .welcome .congrats-container .congrats-container-ct {
+    justify-content: space-evenly;
+  }
+}
+.welcome .congrats-container .congrats-container-ct .nav-open img {
+  display: none;
+}
+@media (max-width: 37.5em) {
+  .welcome .congrats-container .congrats-container-ct .nav-open img {
+    display: block;
+  }
+}
 .welcome .congrats-container .congrats-container-ct .cg-img-ct {
   width: 10%;
   height: 100%;
@@ -730,6 +819,12 @@ body {
 }
 .welcome .congrats-container .congrats-container-ct .cg-img-ct img {
   width: 60%;
+}
+@media (max-width: 37.5em) {
+  .welcome .congrats-container .congrats-container-ct .cg-img-ct img {
+    width: 100%;
+    justify-self: self-end;
+  }
 }
 .welcome .congrats-container .congrats-container-ct h4 {
   font-family: "Marck Script", cursive;
