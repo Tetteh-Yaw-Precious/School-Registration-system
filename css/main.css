@@ -23,7 +23,7 @@ $breakpoint argument choices:
 }
 @media (max-width: 37.5em) {
   * {
-    font-size: 100%;
+    font-size: 97% !important;
   }
 }
 @media (max-width: 75em) {
@@ -222,15 +222,36 @@ nav .nav-link-ct li a:hover {
   width: 100%;
   height: 100vh;
 }
+@media (max-width: 37.5em) {
+  .dashboardflex-ct {
+    height: 100%;
+  }
+}
 .dashboardflex-ct nav {
   width: 20%;
   background-color: #13266a;
 }
+@media (max-width: 37.5em) {
+  .dashboardflex-ct nav {
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+  }
+}
 .dashboardflex-ct .maindashboard-ct {
   width: 80%;
 }
+@media (max-width: 37.5em) {
+  .dashboardflex-ct .maindashboard-ct {
+    width: 100%;
+  }
+}
 
 .dashboardgrid {
+  width: 100%;
+  min-height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 10% 40% 30% 10%;
@@ -238,6 +259,14 @@ nav .nav-link-ct li a:hover {
   grid-row-gap: 1.25rem;
   grid-column-gap: 0.9375rem;
   padding: 2% 5%;
+}
+@media (max-width: 37.5em) {
+  .dashboardgrid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-column-gap: 0.9375rem;
+  }
 }
 
 .studD-content {
@@ -247,6 +276,16 @@ nav .nav-link-ct li a:hover {
   grid-template-rows: 1.5625rem repeat(7, 3.125rem);
   grid-template-areas: "one one one" "two three four" "five six seven" "eight nine ten" "eleven twelve twelve" "thirteen thirteen thirteen" "fourteen fifteen fifteen" "sixteen seventeen seventeen";
   grid-gap: 0.3125rem;
+}
+@media (max-width: 37.5em) {
+  .studD-content {
+    display: grid;
+    height: 100%;
+    padding: 2% 5%;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1.5625rem repeat(8, 3.125rem);
+    grid-template-areas: "one one" "two three" "four five" "six seven" "eight nine" "ten eleven" "twelve thirteen" "fourteen fifteen" "sixteen seventeen";
+  }
 }
 .studD-content div {
   display: flex;
@@ -402,6 +441,12 @@ nav .nav-link-ct li a:hover {
   grid-template-rows: 13% 87%;
   grid-template-areas: "one one" "two three";
 }
+@media (max-width: 37.5em) {
+  .studentAcc {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .studentAcc .stAcc-heading {
   grid-area: one;
   padding-left: 10%;
@@ -412,6 +457,12 @@ nav .nav-link-ct li a:hover {
   border-bottom: 0.125rem solid #13266a;
   padding-bottom: 0.25rem;
 }
+@media (max-width: 37.5em) {
+  .studentAcc .stAcc-heading {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .studentAcc .stAcc-graph {
   grid-area: two;
   display: flex;
@@ -420,10 +471,21 @@ nav .nav-link-ct li a:hover {
   height: 100%;
   width: 100%;
 }
+@media (max-width: 37.5em) {
+  .studentAcc .stAcc-graph {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .studentAcc .stAcc-graph .canvas-ct {
   display: flex;
   height: 100%;
   width: 75%;
+}
+@media (max-width: 37.5em) {
+  .studentAcc .stAcc-graph .canvas-ct {
+    display: flex;
+  }
 }
 .studentAcc .stAcc-info {
   grid-area: three;
@@ -432,6 +494,12 @@ nav .nav-link-ct li a:hover {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 37.5em) {
+  .studentAcc .stAcc-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .studentAcc .stAcc-info .fee-item {
   padding: 0.1rem;
   width: 100%;
@@ -439,6 +507,17 @@ nav .nav-link-ct li a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media (max-width: 37.5em) {
+  .studentAcc .stAcc-info .fee-item {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 4rem;
+    border-bottom: 0.0625rem solid #c3c5cc;
+    padding: 0.5rem 0;
+  }
 }
 .studentAcc .stAcc-info .fee-item h6 {
   font-family: "Poppins", sans-serif;
@@ -616,16 +695,29 @@ body {
 .welcome {
   grid-area: head;
   display: flex;
+  width: 100%;
+}
+@media (max-width: 37.5em) {
+  .welcome {
+    width: 100%;
+  }
 }
 .welcome .congrats-container {
   width: 80%;
   display: flex;
-  justify-content: flex-end;
+}
+@media (max-width: 37.5em) {
+  .welcome .congrats-container {
+    width: 75%;
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 .welcome .congrats-container .congrats-container-ct {
   height: 100%;
-  width: 75%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 .welcome .congrats-container .congrats-container-ct .cg-img-ct {
@@ -633,13 +725,19 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  align-items: center;
 }
 .welcome .congrats-container .congrats-container-ct .cg-img-ct img {
-  width: 90%;
+  width: 60%;
 }
 .welcome .congrats-container .congrats-container-ct h4 {
   font-family: "Marck Script", cursive;
   padding: 0.4rem;
+}
+@media (max-width: 37.5em) {
+  .welcome .congrats-container .congrats-container-ct h4 {
+    display: none;
+  }
 }
 .welcome .congrats-container .congrats-container-ct .welcomemess {
   font-family: "Raleway", sans-serif;
@@ -659,11 +757,21 @@ body {
   align-items: center;
   width: 36%;
 }
+@media (max-width: 37.5em) {
+  .welcome .studentimagedropdown .stu-img-dpdwn-ct {
+    width: 50%;
+  }
+}
 .welcome .studentimagedropdown .stu-img-dpdwn-ct .student-img-ct {
   width: 2.5rem;
   height: 70%;
   border-radius: 312.5rem;
   display: flex;
+}
+@media (max-width: 37.5em) {
+  .welcome .studentimagedropdown .stu-img-dpdwn-ct .student-img-ct {
+    height: 60%;
+  }
 }
 .welcome .studentimagedropdown .stu-img-dpdwn-ct .dropdown-ct {
   display: flex;
@@ -690,6 +798,11 @@ body {
 
 .studD {
   grid-area: det;
+}
+@media (max-width: 37.5em) {
+  .studD {
+    min-height: 35rem;
+  }
 }
 .studD .studD-heading {
   height: 6%;

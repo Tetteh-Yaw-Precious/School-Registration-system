@@ -10,32 +10,47 @@ body {
 .welcome {
   grid-area: head;
   display: flex;
+  width: 100%;
+  @include respond(phone) {
+    width: 100%;
+  }
 
   .congrats-container {
     width: 80%;
     display: flex;
-    justify-content: flex-end;
+    @include respond(phone) {
+      width: 75%;
+      display: flex;
+      justify-content: flex-start;
+    }
 
     .congrats-container-ct {
       height: 100%;
-      width: 75%;
+      width: 100%;
       display: flex;
+      justify-content: center;
       align-items: center;
+      @include respond(phone) {
+      }
 
       .cg-img-ct {
         width: 10%;
         height: 100%;
         display: flex;
         align-items: center;
+        align-items: center;
 
         img {
-          width: 90%;
+          width: 60%;
         }
       }
 
       h4 {
         font-family: $markScript;
         padding: 0.4rem;
+        @include respond(phone) {
+          display: none;
+        }
       }
 
       .welcomemess {
@@ -51,6 +66,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    @include respond(phone) {
+    }
 
     .stu-img-dpdwn-ct {
       display: flex;
@@ -58,12 +75,18 @@ body {
       justify-content: space-evenly;
       align-items: center;
       width: 36%;
+      @include respond(phone) {
+        width: 50%;
+      }
 
       .student-img-ct {
         width: rem(40);
         height: 70%;
         border-radius: rem(5000);
         display: flex;
+        @include respond(phone) {
+          height: 60%;
+        }
       }
       .dropdown-ct {
         display: flex;
@@ -92,6 +115,9 @@ body {
 }
 .studD {
   grid-area: det;
+  @include respond(phone) {
+    min-height: 35rem;
+  }
   .studD-heading {
     height: 6%;
     background-color: $blue;
@@ -131,41 +157,40 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  .amount-ct{
+  .amount-ct {
     width: 35%;
     height: 30%;
-    .amountone{
+    .amountone {
       height: 25%;
       background-color: $blue;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 5%;
-      h6{
+      h6 {
         color: white;
       }
-      a{
+      a {
         color: white;
         font-weight: 700;
-        padding:rem(7) rem(10);
+        padding: rem(7) rem(10);
         border-radius: 100%;
         color: $blue;
         background-color: white;
       }
-
     }
-    .amounttwo{
+    .amounttwo {
       height: 60%;
       border: 1px solid $blue;
       background-color: white;
       display: flex;
       flex-direction: column;
       padding: 2% 4%;
-      label{
-        margin-bottom: .6rem;
+      label {
+        margin-bottom: 0.6rem;
       }
-      input{
-        margin-bottom: .5rem;
+      input {
+        margin-bottom: 0.5rem;
       }
     }
   }

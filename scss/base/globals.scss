@@ -12,7 +12,7 @@
   //defines what 1 rem is
   font-size: 98%;
   @include respond(phone) {
-    font-size: 100%;
+    font-size: 97% !important;
   } //600
   @include respond(tab-land) {
     font-size: 97%;
@@ -63,7 +63,7 @@
     font-weight: 700;
     color: $blue;
   }
-  h6{
+  h6 {
     font-size: rem(20);
     line-height: rem(24);
     font-weight: 700;
@@ -92,7 +92,7 @@
     outline: none !important;
     padding-bottom: rem(5);
     font-size: 1rem;
-  } 
+  }
   label {
     font-size: 1rem;
     font-weight: 600;

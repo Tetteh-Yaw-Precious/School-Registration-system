@@ -19,7 +19,6 @@ auth.onAuthStateChanged((user) => {
           //get their ids and insert the data into them
           document.getElementById("dob").innerHTML = data.dob;
           document.getElementById("firstName1").innerHTML = data.firstname;
-          document.getElementById("lastName1").innerHTML = data.lastname;
           document.getElementById("firstName2").innerHTML = data.firstname;
           document.getElementById("lastName2").innerHTML = data.lastname;
           document.getElementById("otherName").innerHTML = data.othername;

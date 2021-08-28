@@ -4,6 +4,8 @@
 @use '../base/typography.scss'as *;
 
 .dashboardgrid {
+  width: 100%;
+  min-height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 10% 40% 30% 10%;
@@ -19,4 +21,10 @@
   //   background-color: white;
   //   background-color: ;
   // }
+  @include respond(phone) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-column-gap: rem(15);
+  }
 }
