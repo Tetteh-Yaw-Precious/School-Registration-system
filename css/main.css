@@ -103,6 +103,7 @@ $breakpoint argument choices:
   border-bottom: 0.125rem solid #c3c5cc !important;
   outline: none !important;
   padding-bottom: 0.3125rem;
+  font-size: 1rem;
 }
 * label {
   font-size: 1rem;
