@@ -93,6 +93,9 @@
         }
         .btn-ct {
           padding-left: 10%;
+          .btn {
+            background-color: $blue;
+          }
         }
       }
       .form-footer {
@@ -103,20 +106,20 @@
         animation: slidefrombottom 0.5s ease-in forwards;
       }
     }
-    .cloud-img-ct {
-      width: 20%;
-      @include respond(sm-phone) {
-        width: 5%;
-      }
-      img {
-        width: rem(400);
-        position: absolute;
-        top: rem(4);
-        right: rem(200);
-        @include respond(sm-phone) {
-          width: width(rem(400));
-        }
-      }
-    }
+    // .cloud-img-ct {
+    //   width: 20%;
+    //   @include respond(sm-phone) {
+    //     width: 5%;
+    //   }
+    //   img {
+    //     width: rem(400);
+    //     position: absolute;
+    //     top: rem(4);
+    //     right: rem(200);
+    //     @include respond(sm-phone) {
+    //       width: width(rem(400));
+    //     }
+    //   }
+    // }
   }
 }

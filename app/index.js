@@ -47,3 +47,23 @@ sidenav.addEventListener("click", (e) => {
     sidenav.style.animation = " slideout  0.5s forwards";
   }
 });
+
+//registering courses popup
+const registerBtn = document.getElementById("registerCourses");
+registerPopup = document.getElementById("regPopup");
+registerBtn.addEventListener("click", (e) => {
+  registerPopup.classList.remove("display-active");
+});
+
+//closing register popup when close icon is click
+const closeicon = document.getElementById("close");
+closeicon.addEventListener("click", () => {
+  registerPopup.classList.add("display-active");
+});
+
+//checking for submit event on courses checked
+const coursesForm = document.getElementById("popup-body-courses");
+coursesForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  registerPopup.classList.add("display-active");
+});

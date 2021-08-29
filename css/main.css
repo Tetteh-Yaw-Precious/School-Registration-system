@@ -261,6 +261,11 @@ nav .nav-link-ct li a:hover {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 37.5em) {
+  .registerpopup .popup-ct {
+    width: 90%;
+  }
+}
 .registerpopup .popup-ct .popup-heading {
   height: 12%;
   background-color: #596bab;
@@ -799,31 +804,15 @@ nav .nav-link-ct li a:hover {
 .login-container .login-container--inner .form-ct form .btn-ct {
   padding-left: 10%;
 }
+.login-container .login-container--inner .form-ct form .btn-ct .btn {
+  background-color: #13266a;
+}
 .login-container .login-container--inner .form-ct .form-footer {
   background-color: #13266a;
   min-height: 5%;
   transform: translateY(1.8125rem);
   opacity: 0;
   animation: slidefrombottom 0.5s ease-in forwards;
-}
-.login-container .login-container--inner .cloud-img-ct {
-  width: 20%;
-}
-@media (max-width: 25em) {
-  .login-container .login-container--inner .cloud-img-ct {
-    width: 5%;
-  }
-}
-.login-container .login-container--inner .cloud-img-ct img {
-  width: 25rem;
-  position: absolute;
-  top: 0.25rem;
-  right: 12.5rem;
-}
-@media (max-width: 25em) {
-  .login-container .login-container--inner .cloud-img-ct img {
-    width: width(25rem);
-  }
 }
 
 body {
