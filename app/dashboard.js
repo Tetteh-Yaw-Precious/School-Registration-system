@@ -97,28 +97,28 @@ payFeesBtn.addEventListener("click", () => {
     payfeepopup.classList.remove("display-active");
   }
 });
+const mediaQuery = window.matchMedia("(min-width: 600px)");
+// Check if the media query is true
 
-let amount = "";
 amountForm.addEventListener("click", (e) => {
   e.preventDefault;
   if (e.target.classList.contains("close")) {
     //removing popup window
     payfeepopup.classList.add("display-active");
-    sidenav.style.animation = " slidein  0.2s forwards";
-  }
-  //collecting payment amount for storage to be passed to flutter
-  else if (e.target.classList.contains("proceed")) {
-    amount = document.getElementById("inputamount").value;
-    console.log(amount);
+    if (window.innerWidth > 600) {
+      sidenav.style.animation = " slidein  0.2s forwards";
+      console.log(true);
+    }
   }
 });
 
-const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
-proceedToPayment.addEventListener("click", () => {
+const makePayments = (e) => {
+  e.preventDefault();
+
   FlutterwaveCheckout({
     public_key: pkey,
     tx_ref: `COMPSCI ${Math.random() * 100000000000} + 1`,
-    amount: amount,
+    amount: document.getElementById("inputamount").value,
     currency: "GHS",
     country: "GH",
     payment_options: "card,mobile_money_ghana",
@@ -134,9 +134,11 @@ proceedToPayment.addEventListener("click", () => {
       // close modal
     },
     customizations: {
-      title: "My store",
-      description: "Payment for items in cart",
-      logo: "https://assets.piedpiper.com/logo.png",
+      title: "School fees",
+      description: "Payment of school fees",
+      logo: "../assets/ktulogonew.svg",
     },
   });
-});
+};
+const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
+amountForm.addEventListener("submit", makePayments);

@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
   </head>
 
   <body>
@@ -300,14 +301,14 @@
         </div>
         <div class="amounttwo">
           <label for="amount">Enter amount</label>
-          <input type="text" id="inputamount">
-          <script src="https://checkout.flutterwave.com/v3.js"></script>
-          <a href="#" class="btn proceed" id="proceed">proceed</a>
+          <input type="text" id="inputamount" required>
+      
+          <input type="submit" class="btn proceed" id="proceed" value="Proceed" />
         </div>
       </form>
     </div>
-    <!-- animation code -->
-    <div class="loadinganimation" id="loadingAnimation">
+    <!-- loading animation -->
+    <div class="loadinganimation display-active" id="loadingAnimation">
       <div class="loading " id="loading"></div>
     </div>
 
