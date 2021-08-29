@@ -89,7 +89,8 @@ signout.addEventListener("click", (e) => {
 
 console.log(payFeesBtn);
 const payfeepopup = document.getElementById("paymentPopup");
-const enterAmount = document.getElementById("enteramount");
+const amountForm = document.getElementById("amountform");
+
 //integrating flutterwave payment methods
 payFeesBtn.addEventListener("click", () => {
   if (payfeepopup.classList.contains("display-active")) {
@@ -97,11 +98,18 @@ payFeesBtn.addEventListener("click", () => {
   }
 });
 
-enterAmount.addEventListener("click", (e) => {
+let amount = "";
+amountForm.addEventListener("click", (e) => {
   e.preventDefault;
-  console.log(e.target);
   if (e.target.classList.contains("close")) {
+    //removing popup window
     payfeepopup.classList.add("display-active");
+    sidenav.style.animation = " slidein  0.2s forwards";
+  }
+  //collecting payment amount for storage to be passed to flutter
+  else if (e.target.classList.contains("proceed")) {
+    amount = document.getElementById("inputamount").value;
+    console.log(amount);
   }
 });
 
@@ -110,7 +118,7 @@ proceedToPayment.addEventListener("click", () => {
   FlutterwaveCheckout({
     public_key: pkey,
     tx_ref: `COMPSCI ${Math.random() * 100000000000} + 1`,
-    amount: 10,
+    amount: amount,
     currency: "GHS",
     country: "GH",
     payment_options: "card,mobile_money_ghana",

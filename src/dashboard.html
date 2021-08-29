@@ -26,7 +26,7 @@
           </li>
           <li>
             <a href="#"
-            id="payfees"><img src="../assets/creditcards.svg" alt="creditcards" /> Pay fees</a
+            id="payfees" class="payfees"><img src="../assets/creditcards.svg" alt="creditcards" /> Pay fees</a
             >
           </li>
           <li>
@@ -293,7 +293,7 @@
     </div>
     <!-- make payment popup -->
     <div class="paymentpopup display-active" id="paymentPopup">
-      <form class="amount-ct" id="enteramount">
+      <form class="amount-ct" id="amountform">
         <div class="amountone">
           <h6>Enter amount to pay</h6>
           <a href="#" class="close">X</a>
@@ -302,12 +302,12 @@
           <label for="amount">Enter amount</label>
           <input type="text" id="inputamount">
           <script src="https://checkout.flutterwave.com/v3.js"></script>
-          <a href="#" class="btn" id="proceed">proceed</a>
+          <a href="#" class="btn proceed" id="proceed">proceed</a>
         </div>
       </form>
     </div>
     <!-- animation code -->
-    <div class="loadinganimation display-active" id="loadingAnimation">
+    <div class="loadinganimation" id="loadingAnimation">
       <div class="loading " id="loading"></div>
     </div>
 

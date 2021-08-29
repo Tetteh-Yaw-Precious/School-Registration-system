@@ -40,3 +40,10 @@ navopen.addEventListener("click", () => {
 navclose.addEventListener("click", () => {
   sidenav.style.animation = " slideout  0.5s forwards";
 });
+
+/**removing sidenav on payment popup */
+sidenav.addEventListener("click", (e) => {
+  if (e.target.classList.contains("payfees")) {
+    sidenav.style.animation = " slideout  0.5s forwards";
+  }
+});
