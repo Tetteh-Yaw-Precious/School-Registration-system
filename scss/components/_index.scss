@@ -1,2 +1,3 @@
-@import "./cardShadow";
-@import "./nav.scss"
+@forward "./cardShadow";
+@forward "./nav.scss";
+@forward "./registerPopup";

@@ -124,7 +124,7 @@ $breakpoint argument choices:
   text-align: center;
   font-size: 0.9375rem;
   font-weight: 700;
-  background-color: #f45110;
+  background-color: #0fb60c;
 }
 * .btn:hover {
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.08);
@@ -185,55 +185,6 @@ svg {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
 }
 
-/*
-0 - 600px: Phone
-600 - 900px: Tablet portrait
-900 - 1200px: Tablet Landscape
-[1200 - 1800] is where our normal styles apply
-1800px + : Big desktop
-
-
-/*
-$breakpoint argument choices:
---phone
---tab-port
---tab-land
---big-desktop
-*/
-@keyframes slidefrombottom {
-  0% {
-    transform: translateY(0.9375rem);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes slidein {
-  from {
-    transform: translateX(-37.5rem);
-  }
-  to {
-    transform: translate(0);
-  }
-}
-@keyframes slideout {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translateX(-37.5rem);
-  }
-}
 @media (max-width: 37.5em) {
   nav {
     width: 70% !important;
@@ -291,6 +242,116 @@ nav .nav-link-ct li a img {
 }
 nav .nav-link-ct li a:hover {
   background-color: #08112f;
+}
+
+.registerpopup {
+  width: 100%;
+  height: 100vh;
+  background: rgba(195, 197, 204, 0.97);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.registerpopup .popup-ct {
+  width: 50%;
+  height: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+.registerpopup .popup-ct .popup-heading {
+  height: 12%;
+  background-color: #596bab;
+  display: flex;
+  align-items: center;
+  padding: 0 2%;
+  justify-content: space-between;
+}
+.registerpopup .popup-ct .popup-heading h6 {
+  color: white;
+}
+.registerpopup .popup-ct .popup-heading a {
+  display: flex;
+  justify-content: flex-end;
+}
+.registerpopup .popup-ct .popup-heading a img {
+  width: 15%;
+  align-self: flex-end;
+}
+.registerpopup .popup-ct .popup-body {
+  border: 1px solid #596bab;
+  height: 100%;
+}
+.registerpopup .popup-ct .popup-body .popup-body--title {
+  padding: 1% 2%;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .form-group label {
+  position: relative;
+  cursor: pointer;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .form-group label:before {
+  content: "";
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .form-group input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #0079bf;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 {
+  border: 1px solid red;
+  display: flex;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 .checkbox {
+  border: 2px solid blue;
+  width: 20%;
+}
+.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 .checkbox input[type=checkbox] {
+  border-radius: 3rem;
+  border: 1px solid blue;
+}
+.registerpopup .btn-ct {
+  width: 100%;
+}
+.registerpopup .btn {
+  background-color: #f45110;
 }
 
 .dashboardflex-ct {
@@ -935,6 +996,9 @@ body {
   display: flex;
   align-items: flex-start;
 }
+.button .btn {
+  background-color: #0fb60c;
+}
 
 .paymentpopup {
   background-color: #e0e0e0f7;
@@ -966,7 +1030,7 @@ body {
 }
 .paymentpopup .amount-ct .amountone {
   height: 25%;
-  background-color: #13266a;
+  background-color: #596bab;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -985,7 +1049,7 @@ body {
 }
 .paymentpopup .amount-ct .amounttwo {
   height: 60%;
-  border: 1px solid #13266a;
+  border: 1px solid #596bab;
   background-color: white;
   display: flex;
   flex-direction: column;
