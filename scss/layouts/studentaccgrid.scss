@@ -97,6 +97,9 @@
       p {
         color: $success;
       }
+      .ineligible {
+        color: $danger !important;
+      }
     }
     .noteligiblefees-ct {
       height: 30%;

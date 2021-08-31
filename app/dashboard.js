@@ -4,18 +4,29 @@ const loadingAnime = document.getElementById("loadingAnimation");
 const payFeesBtn = document.getElementById("payfees");
 const proceedToPayment = document.getElementById("proceed");
 let data;
+let Totalfees;
+
+//loading animation
+const loadingcircle = () => {
+  setTimeout(() => {
+    document.getElementById("loading").style.borderRight = "5px solid #f45110";
+  }, 100);
+  setTimeout(() => {
+    document.getElementById("loading").style.borderBottom = "5px solid #f45110";
+  }, 200);
+};
+
 auth.onAuthStateChanged((user) => {
   //if the user has signed in, go ahead and get the user data from the database
   if (user) {
     /**go to the User_Data collection where email is equal
      * to the email retrieved from localstorage*/
-    db.collection("User_Data")
-      .where("email", "==", email)
+    db.collection("User_Data").where("email", "==", email)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           data = doc.data();
-
+          //setting localStorage data
           //get their ids and insert the data into them
           document.getElementById("dob").innerHTML = data.dob;
           document.getElementById("firstName1").innerHTML = data.firstname;
@@ -25,41 +36,53 @@ auth.onAuthStateChanged((user) => {
           document.getElementById("sex").innerHTML = data.sex;
           document.getElementById("pob").innerHTML = data.pob;
           document.getElementById("nationality").innerHTML = data.nationality;
-          document.getElementById("programSession").innerHTML =
-            data.programsession;
+          document.getElementById("programSession").innerHTML = data.programsession;
           document.getElementById("tel").innerHTML = data.Tel;
-          document.getElementById("eduBackground").innerHTML =
-            data.edubackground;
+          document.getElementById("eduBackground").innerHTML = data.edubackground;
           document.getElementById("tel").innerHTML = data.Tel;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
-          document.getElementById("residencialAddress").innerHTML =
-            data.residencialaddress;
+          document.getElementById("residencialAddress").innerHTML = data.residencialaddress;
           document.getElementById("fatherName").innerHTML = data.fathername;
           document.getElementById("fatherOcc").innerHTML = data.fatherocc;
           document.getElementById("motherName").innerHTML = data.mothername;
           document.getElementById("motherOcc").innerHTML = data.motherocc;
-          document.getElementById("admissionYear").innerHTML =
-            data.admissionyear;
-          document.getElementById("completionYear").innerHTML =
-            data.completionyear;
+          document.getElementById("admissionYear").innerHTML = data.admissionyear;
+          document.getElementById("completionYear").innerHTML = data.completionyear;
           document.getElementById("department").innerHTML = data.department;
           document.getElementById("programme").innerHTML = data.programme;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
           document.getElementById("totalfees").innerHTML = data.totalfees;
+          document.getElementById("paidfees").innerHTML = data.paidfees;
           localStorage.setItem("Tel", data.Tel);
           localStorage.setItem("name", `${data.firstname} ${data.lastname}`);
-          /*making perfect circle for animation and 
-          removing animation from the page */
+          localStorage.setItem("Totalfees", data.totalfees);
+          Totalfees = data.totalfees;
+          console.log(Totalfees);
+          //we are checking to see what 60% of the overrall fees is
+          calculatingfeespercentage = () => {
+            let requiredpercentage = (60 / 100) * Totalfees;
+            console.log(requiredpercentage);
+
+            /**after checking to find out the what 60% is now we are we going to
+             * see if the paid fees is >= to 60% of the total fees*/
+            if (data.paidfees >= requiredpercentage) {
+              document.getElementById("pfeesh6").style.color = "#0fb60c";
+              document.getElementById("paidfees").style.color = "#0fb60c";
+              document.getElementById("paid").style.color = "#0fb60c";
+              console.log(true);
+            } else {
+              console.log(false);
+              const eleligiblefeesCt = document.querySelector(".eligiblefees-ct");
+              document.getElementById("pfeesh6").style.color = "#f45110";
+              document.getElementById("paidfees").style.color = "#f45110";
+              document.getElementById("paid").style.color = "#f45110";
+
+            }
+          };
+          calculatingfeespercentage();
           if (data !== null) {
-            setTimeout(() => {
-              document.getElementById("loading").style.borderRight =
-                "5px solid #f45110";
-            }, 100);
-            setTimeout(() => {
-              document.getElementById("loading").style.borderBottom =
-                "5px solid #f45110";
-            }, 200);
+            loadingcircle();
           }
           setTimeout(() => {
             loadingAnime.classList.add("display-active");
@@ -87,7 +110,6 @@ signout.addEventListener("click", (e) => {
     });
 });
 
-console.log(payFeesBtn);
 const payfeepopup = document.getElementById("paymentPopup");
 const amountForm = document.getElementById("amountform");
 
@@ -107,10 +129,13 @@ amountForm.addEventListener("click", (e) => {
     payfeepopup.classList.add("display-active");
     if (window.innerWidth > 600) {
       sidenav.style.animation = " slidein  0.2s forwards";
-      console.log(true);
     }
   }
 });
+//checking for 60%  of total fees
+
+// console.log(requiredpercentage);
+//comparing paid fees to total fees
 
 const makePayments = (e) => {
   e.preventDefault();
@@ -127,11 +152,11 @@ const makePayments = (e) => {
       phone_number: `${localStorage.getItem("Tel")}`,
       name: `${localStorage.getItem("name")}`,
     },
-    callback: function (data) {
-      console.log(data);
+    callback: function () {
+      console.log("success");
     },
     onclose: function () {
-      // close modal
+      payfeepopup.classList.add("display-active");
     },
     customizations: {
       title: "School fees",
@@ -140,5 +165,6 @@ const makePayments = (e) => {
     },
   });
 };
+
 const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
 amountForm.addEventListener("submit", makePayments);
