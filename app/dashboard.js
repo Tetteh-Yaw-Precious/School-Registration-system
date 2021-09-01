@@ -3,6 +3,8 @@ const email = localStorage.getItem("email");
 const loadingAnime = document.getElementById("loadingAnimation");
 const payFeesBtn = document.getElementById("payfees");
 const proceedToPayment = document.getElementById("proceed");
+const payfeepopup = document.getElementById("paymentPopup");
+const amountForm = document.getElementById("amountform");
 let data;
 let Totalfees;
 
@@ -40,7 +42,7 @@ auth.onAuthStateChanged((user) => {
           document.getElementById("eduBackground").innerHTML = data.edubackground;
           document.getElementById("tel").innerHTML = data.Tel;
           document.getElementById("resultSlip").innerHTML = data.resultslip;
-          document.getElementById("residencialAddress").innerHTML = data.residencialaddress;
+          document.getElementById("residencialAddress").innerHTML = data.residentialaddress;
           document.getElementById("fatherName").innerHTML = data.fathername;
           document.getElementById("fatherOcc").innerHTML = data.fatherocc;
           document.getElementById("motherName").innerHTML = data.mothername;
@@ -58,10 +60,18 @@ auth.onAuthStateChanged((user) => {
           localStorage.setItem("Totalfees", data.totalfees);
           Totalfees = data.totalfees;
           console.log(Totalfees);
+
+          //integrating flutterwave payment methods
+          payFeesBtn.addEventListener("click", () => {
+            if (payfeepopup.classList.contains("display-active")) {
+              payfeepopup.classList.remove("display-active");
+            }
+          });
+
+
           //we are checking to see what 60% of the overrall fees is
           calculatingfeespercentage = () => {
             let requiredpercentage = (60 / 100) * Totalfees;
-            console.log(requiredpercentage);
 
             /**after checking to find out the what 60% is now we are we going to
              * see if the paid fees is >= to 60% of the total fees*/
@@ -70,12 +80,20 @@ auth.onAuthStateChanged((user) => {
               document.getElementById("paidfees").style.color = "#0fb60c";
               document.getElementById("paid").style.color = "#0fb60c";
               console.log(true);
+              registerBtn.disabled = false;
+              //registering courses popup
+              registerBtn.style.backgroundColor = "#0fb60c";
+              registerBtn.addEventListener("click", (e) => {
+                registerPopup.classList.remove("display-active");
+              });
             } else {
               console.log(false);
-              const eleligiblefeesCt = document.querySelector(".eligiblefees-ct");
               document.getElementById("pfeesh6").style.color = "#f45110";
               document.getElementById("paidfees").style.color = "#f45110";
               document.getElementById("paid").style.color = "#f45110";
+              registerBtn.disabled = true;
+              registerBtn.style.backgroundColor = "#c4c4c4"
+              console.log(registerBtn)
 
             }
           };
@@ -109,15 +127,6 @@ signout.addEventListener("click", (e) => {
     });
 });
 
-const payfeepopup = document.getElementById("paymentPopup");
-const amountForm = document.getElementById("amountform");
-
-//integrating flutterwave payment methods
-payFeesBtn.addEventListener("click", () => {
-  if (payfeepopup.classList.contains("display-active")) {
-    payfeepopup.classList.remove("display-active");
-  }
-});
 const mediaQuery = window.matchMedia("(min-width: 600px)");
 // Check if the media query is true
 
@@ -136,6 +145,7 @@ amountForm.addEventListener("click", (e) => {
 // console.log(requiredpercentage);
 //comparing paid fees to total fees
 
+const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
 const makePayments = (e) => {
   e.preventDefault();
 
@@ -153,6 +163,7 @@ const makePayments = (e) => {
     },
     callback: function () {
       console.log("success");
+
     },
     onclose: function () {
       payfeepopup.classList.add("display-active");
@@ -164,6 +175,4 @@ const makePayments = (e) => {
     },
   });
 };
-
-const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
 amountForm.addEventListener("submit", makePayments);

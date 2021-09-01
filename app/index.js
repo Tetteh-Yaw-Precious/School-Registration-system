@@ -48,12 +48,9 @@ sidenav.addEventListener("click", (e) => {
   }
 });
 
-//registering courses popup
 const registerBtn = document.getElementById("registerCourses");
 registerPopup = document.getElementById("regPopup");
-registerBtn.addEventListener("click", (e) => {
-  registerPopup.classList.remove("display-active");
-});
+
 
 //closing register popup when close icon is click
 const closeicon = document.getElementById("close");
