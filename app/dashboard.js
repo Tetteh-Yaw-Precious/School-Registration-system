@@ -22,8 +22,7 @@ auth.onAuthStateChanged((user) => {
     /**go to the User_Data collection where email is equal
      * to the email retrieved from localstorage*/
     db.collection("User_Data").where("email", "==", email)
-      .get()
-      .then((querySnapshot) => {
+      .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           data = doc.data();
           //setting localStorage data
