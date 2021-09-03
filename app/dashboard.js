@@ -23,90 +23,160 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     /**go to the User_Data collection where email is equal
      * to the email retrieved from localstorage*/
-    db.collection("User_Data").where("email", "==", email)
-      .onSnapshot((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          data = doc.data();
-          //setting localStorage data
-          //get their ids and insert the data into them
-          document.getElementById("dob").innerHTML = data.dob;
-          document.getElementById("firstName1").innerHTML = data.firstname;
-          document.getElementById("firstName2").innerHTML = data.firstname;
-          document.getElementById("lastName2").innerHTML = data.lastname;
-          document.getElementById("otherName").innerHTML = data.othername;
-          document.getElementById("sex").innerHTML = data.sex;
-          document.getElementById("pob").innerHTML = data.pob;
-          document.getElementById("nationality").innerHTML = data.nationality;
-          document.getElementById("programSession").innerHTML = data.programsession;
-          document.getElementById("tel").innerHTML = data.Tel;
-          document.getElementById("eduBackground").innerHTML = data.edubackground;
-          document.getElementById("tel").innerHTML = data.Tel;
-          document.getElementById("resultSlip").innerHTML = data.resultslip;
-          document.getElementById("residencialAddress").innerHTML = data.residentialaddress;
-          document.getElementById("fatherName").innerHTML = data.fathername;
-          document.getElementById("fatherOcc").innerHTML = data.fatherocc;
-          document.getElementById("motherName").innerHTML = data.mothername;
-          document.getElementById("motherOcc").innerHTML = data.motherocc;
-          document.getElementById("admissionYear").innerHTML = data.admissionyear;
-          document.getElementById("completionYear").innerHTML = data.completionyear;
-          document.getElementById("department").innerHTML = data.department;
-          document.getElementById("programme").innerHTML = data.programme;
-          document.getElementById("resultSlip").innerHTML = data.resultslip;
-          document.getElementById("resultSlip").innerHTML = data.resultslip;
-          document.getElementById("totalfees").innerHTML = data.totalfees;
-          document.getElementById("paidfees").innerHTML = data.paidfees;
-          localStorage.setItem("Tel", data.Tel);
-          localStorage.setItem("name", `${data.firstname} ${data.lastname}`);
-          localStorage.setItem("Totalfees", data.totalfees);
-          Totalfees = data.totalfees;
-          console.log(Totalfees);
 
-          //integrating flutterwave payment methods
-          payFeesBtn.addEventListener("click", () => {
-            if (payfeepopup.classList.contains("display-active")) {
-              payfeepopup.classList.remove("display-active");
-            }
-          });
+    db.collection("User_Data").doc(user.uid).onSnapshot((doc) => {
+      data = doc.data();
+      // doc.set({firstname: "man"});
 
 
-          //we are checking to see what 60% of the overrall fees is
-          calculatingfeespercentage = () => {
-            let requiredpercentage = (60 / 100) * Totalfees;
 
-            /**after checking to find out the what 60% is now we are we going to
-             * see if the paid fees is >= to 60% of the total fees*/
-            if (data.paidfees >= requiredpercentage) {
-              document.getElementById("pfeesh6").style.color = "#0fb60c";
-              document.getElementById("paidfees").style.color = "#0fb60c";
-              document.getElementById("paid").style.color = "#0fb60c";
-              console.log(true);
-              registerBtn.disabled = false;
-              //registering courses popup
-              registerBtn.style.backgroundColor = "#0fb60c";
-              registerBtn.addEventListener("click", (e) => {
-                registerPopup.classList.remove("display-active");
-              });
-            } else {
-              console.log(false);
-              document.getElementById("pfeesh6").style.color = "#f45110";
-              document.getElementById("paidfees").style.color = "#f45110";
-              document.getElementById("paid").style.color = "#f45110";
-              registerBtn.disabled = true;
-              registerBtn.style.backgroundColor = "#c4c4c4"
-              console.log(registerBtn)
+      //setting localStorage data
+      //get their ids and insert the data into them
+      document.getElementById("dob").innerHTML = data.dob;
+      document.getElementById("firstName1").innerHTML = data.firstname;
+      document.getElementById("firstName2").innerHTML = data.firstname;
+      document.getElementById("lastName2").innerHTML = data.lastname;
+      document.getElementById("otherName").innerHTML = data.othername;
+      document.getElementById("sex").innerHTML = data.sex;
+      document.getElementById("pob").innerHTML = data.pob;
+      document.getElementById("nationality").innerHTML = data.nationality;
+      document.getElementById("programSession").innerHTML = data.programsession;
+      document.getElementById("tel").innerHTML = data.Tel;
+      document.getElementById("eduBackground").innerHTML = data.edubackground;
+      document.getElementById("tel").innerHTML = data.Tel;
+      document.getElementById("resultSlip").innerHTML = data.resultslip;
+      document.getElementById("residencialAddress").innerHTML = data.residentialaddress;
+      document.getElementById("fatherName").innerHTML = data.fathername;
+      document.getElementById("fatherOcc").innerHTML = data.fatherocc;
+      document.getElementById("motherName").innerHTML = data.mothername;
+      document.getElementById("motherOcc").innerHTML = data.motherocc;
+      document.getElementById("admissionYear").innerHTML = data.admissionyear;
+      document.getElementById("completionYear").innerHTML = data.completionyear;
+      document.getElementById("department").innerHTML = data.department;
+      document.getElementById("programme").innerHTML = data.programme;
+      document.getElementById("resultSlip").innerHTML = data.resultslip;
+      document.getElementById("resultSlip").innerHTML = data.resultslip;
+      document.getElementById("totalfees").innerHTML = data.totalfees;
+      document.getElementById("paidfees").innerHTML = data.paidfees;
 
-            }
-          };
-          calculatingfeespercentage();
-          if (data !== null) {
-            loadingcircle();
-          }
-          setTimeout(() => {
-            loadingAnime.classList.add("display-active");
-          }, 300);
-        });
+
+//building doughnut
+let moneyGraph = document.getElementById("moneyGraph").getContext("2d");
+Chart.defaults.font.size = 12;
+Chart.defaults.font.family = "Raleway,sans-serif";
+Chart.defaults.cutOut = 49;
+let massPopChart = new Chart(moneyGraph, {
+  type: "doughnut",
+  data: {
+    labels: ["remaining balance", "paid"],
+    datasets: [
+      {
+        label: "Population",
+        data: [data.totalfees-data.paidfees,data.paidfees],
+        backgroundColor: ["#13266a", "#0fb60c"],
+        fontFamily: "Raleway",
+      },
+    ],
+  },
+  options: [],
+});
+
+
+
+
+      localStorage.setItem("Tel", data.Tel);
+      localStorage.setItem("name", `${data.firstname} ${data.lastname}`);
+      localStorage.setItem("Totalfees", data.totalfees);
+      Totalfees = data.totalfees;
+      console.log(Totalfees);
+
+
+      //integrating flutterwave payment methods
+      payFeesBtn.addEventListener("click", () => {
+        if (payfeepopup.classList.contains("display-active")) {
+          payfeepopup.classList.remove("display-active");
+        }
       });
+
+
+      //we are checking to see what 60% of the overrall fees is
+      calculatingfeespercentage = () => {
+        let requiredpercentage = (60 / 100) * Totalfees;
+
+        /**after checking to find out the what 60% is now we are we going to
+         * see if the paid fees is >= to 60% of the total fees*/
+        if (data.paidfees >= requiredpercentage) {
+          document.getElementById("pfeesh6").style.color = "#0fb60c";
+          document.getElementById("paidfees").style.color = "#0fb60c";
+          document.getElementById("paid").style.color = "#0fb60c";
+          console.log(true);
+          registerBtn.disabled = false;
+          //registering courses popup
+          registerBtn.style.backgroundColor = "#0fb60c";
+          registerBtn.addEventListener("click", () => {
+            registerPopup.classList.remove("display-active");
+          });
+        } else {
+          console.log(false);
+          document.getElementById("pfeesh6").style.color = "#f45110";
+          document.getElementById("paidfees").style.color = "#f45110";
+          document.getElementById("paid").style.color = "#f45110";
+          registerBtn.disabled = true;
+          registerBtn.style.backgroundColor = "#c4c4c4"
+          console.log(registerBtn)
+
+        }
+      };
+      calculatingfeespercentage();
+      if (data !== null) {
+        loadingcircle();
+      }
+      setTimeout(() => {
+        loadingAnime.classList.add("display-active");
+      }, 300);
+
+
+      const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
+      const makePayments = (e, ) => {
+        e.preventDefault();
+        let amountvalue = document.getElementById("inputamount").value
+
+        FlutterwaveCheckout({
+          public_key: pkey,
+          tx_ref: `COMPSCI ${Math.random() * 100000000000} + 1`,
+          amount: amountvalue,
+          currency: "GHS",
+          country: "GH",
+          payment_options: "card,mobile_money_ghana",
+          // redirect_url: "../src/dashboard.html",
+          customer: {
+            email: `${localStorage.getItem("email")}`,
+            phone_number: `${localStorage.getItem("Tel")}`,
+            name: `${localStorage.getItem("name")}`,
+          },
+          callback: function (data) {
+            if (data.status == "successful") {
+              let increaseBy = firebase.firestore.FieldValue.increment(amountvalue)
+              db.collection("User_Data").doc(user.uid).update({
+                  paidfees: increaseBy
+              });
+            }
+
+          },
+          onclose: function () {
+            payfeepopup.classList.add("display-active");
+          },
+          customizations: {
+            title: "School fees",
+            description: "Payment of school fees",
+            logo: "../assets/ktulogonew.svg",
+          },
+        });
+      };
+      amountForm.addEventListener("submit", makePayments);
+    });
   }
+
 });
 
 /**signing users out of the dashboard, clearing
@@ -140,39 +210,3 @@ amountForm.addEventListener("click", (e) => {
     }
   }
 });
-//checking for 60%  of total fees
-
-// console.log(requiredpercentage);
-//comparing paid fees to total fees
-
-const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
-const makePayments = (e) => {
-  e.preventDefault();
-
-  FlutterwaveCheckout({
-    public_key: pkey,
-    tx_ref: `COMPSCI ${Math.random() * 100000000000} + 1`,
-    amount: document.getElementById("inputamount").value,
-    currency: "GHS",
-    country: "GH",
-    payment_options: "card,mobile_money_ghana",
-    customer: {
-      email: `${localStorage.getItem("email")}`,
-      phone_number: `${localStorage.getItem("Tel")}`,
-      name: `${localStorage.getItem("name")}`,
-    },
-    callback: function () {
-      console.log("success");
-
-    },
-    onclose: function () {
-      payfeepopup.classList.add("display-active");
-    },
-    customizations: {
-      title: "School fees",
-      description: "Payment of school fees",
-      logo: "../assets/ktulogonew.svg",
-    },
-  });
-};
-amountForm.addEventListener("submit", makePayments);
