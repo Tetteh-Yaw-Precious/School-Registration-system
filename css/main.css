@@ -682,6 +682,9 @@ nav .nav-link-ct li a:hover {
 .studentAcc .stAcc-info .eligiblefees-ct p {
   color: #0fb60c;
 }
+.studentAcc .stAcc-info .eligiblefees-ct .ineligible {
+  color: #f41010 !important;
+}
 .studentAcc .stAcc-info .noteligiblefees-ct {
   height: 30%;
 }
