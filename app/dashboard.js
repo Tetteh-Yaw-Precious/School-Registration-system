@@ -113,6 +113,7 @@ auth.onAuthStateChanged((user) => {
           /**after checking to find out the what 60% is now we are we going to
            * see if the paid fees is >= to 60% of the total fees*/
           if (data.paidfees >= requiredpercentage) {
+            console.log(data.paidfees);
             document.getElementById("pfeesh6").style.color = "#0fb60c";
             document.getElementById("paidfees").style.color = "#0fb60c";
             document.getElementById("paid").style.color = "#0fb60c";
@@ -171,6 +172,9 @@ auth.onAuthStateChanged((user) => {
                   counter: updateIndexcounter,
                 });
               }
+              massPopChart.destroy();
+              sidenav.style.animation = " slidein  0.2s forwards";
+              calculatingfeespercentage();
             },
             onclose: function () {
               payfeepopup.classList.add("display-active");
