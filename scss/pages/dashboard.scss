@@ -1,7 +1,7 @@
-@use '../abstracts/variables.scss'as *;
-@use '../abstracts/functions.scss'as *;
-@use '../abstracts/mixins.scss'as *;
-@use '../base/typography.scss'as *;
+@use "../abstracts/variables.scss" as *;
+@use "../abstracts/functions.scss" as *;
+@use "../abstracts/mixins.scss" as *;
+@use "../base/typography.scss" as *;
 
 body {
   background-color: $bg-light;
@@ -163,9 +163,38 @@ body {
   grid-area: btn;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
+  .imageinput {
+    height: 50%;
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    label {
+      height: 100%;
+      width: 60%;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 200;
+      padding: 0rem 2rem;
+      background-color: $blue;
+    }
+    span{
+      border: 1px solid red;
+      width: 60%;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   .btn {
     background-color: $success;
+    width: 100%;
   }
 }
 .paymentpopup {
@@ -247,7 +276,9 @@ body {
     animation: spin 0.4s infinite linear;
   }
 }
-
+input::-webkit-file-upload-button {
+  border: 1px solid red;
+}
 .display-active {
   display: none;
 }

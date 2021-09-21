@@ -4,13 +4,11 @@ const navopen = document.getElementById("navopen");
 const navclose = document.getElementById("navclose");
 const sidenav = document.getElementById("navbar");
 
+//toggling dropdown
 dropdownicon.addEventListener("click", (e) => {
   e.preventDefault;
   signout.classList.toggle("display-active");
 });
-//toggling dropdown
-
-
 
 /**opening sidenav on click */
 navopen.addEventListener("click", () => {
@@ -32,11 +30,19 @@ sidenav.addEventListener("click", (e) => {
 const registerBtn = document.getElementById("registerCourses");
 registerPopup = document.getElementById("regPopup");
 
-
 //closing register popup when close icon is click
 const closeicon = document.getElementById("close");
 closeicon.addEventListener("click", () => {
   registerPopup.classList.add("display-active");
+});
+
+//w
+const actualBtn = document.getElementById("passport");
+
+const fileChosen = document.getElementById("file-chosen");
+
+actualBtn.addEventListener("change", function () {
+  fileChosen.textContent = this.files[0].name;
 });
 
 //checking for submit event on courses checked
