@@ -14,10 +14,16 @@ loginForm.addEventListener("submit", (e) => {
     .then(() => {
       auth.onAuthStateChanged(function (currentUser) {
         if (currentUser) {
-          //store email in localstorage
-          localStorage.setItem("email", email);
-          //redirect to dashboard page
-          location.href = "/src/dashboard.html";
+          setTimeout(() => {
+            //store email in localstorage
+            localStorage.setItem("email", email);
+            //redirect to dashboard page
+            location.href = "/src/dashboard.html";
+          }, 2000);
+          alerts.innerHTML = "login successful";
+          alerts.style.color = "green";
+          alerts.classList.remove("display-none");
+          console.log(currentUser);
         }
         loginForm.reset();
       });
@@ -26,6 +32,6 @@ loginForm.addEventListener("submit", (e) => {
       alerts.innerHTML = err.message;
       alerts.style.color = "red";
       alerts.classList.remove("display-none");
-      console.log(err)
+      console.log(err);
     });
 });
