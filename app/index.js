@@ -1,8 +1,12 @@
 const dropdownicon = document.getElementById("dropdownarrow");
 const signout = document.querySelector(".signout");
+const cardoffice = document.querySelector(".cardoffice");
 const navopen = document.getElementById("navopen");
 const navclose = document.getElementById("navclose");
 const sidenav = document.getElementById("navbar");
+const closeicontwo = document.getElementById("closeicontwo");
+const cardofficebtn = document.getElementById("cardofficebtn")
+console.log(cardofficebtn)
 
 //toggling dropdown
 dropdownicon.addEventListener("click", (e) => {
@@ -33,21 +37,28 @@ registerPopup = document.getElementById("regPopup");
 //closing register popup when close icon is click
 const closeicon = document.getElementById("close");
 closeicon.addEventListener("click", () => {
-  registerPopup.classList.add("display-active");
+  cardoffice.classList.toggle("display-active");
+  sidenav.style.animation = " slideout  0.5s forwards";
+  
+  
 });
 
 //w
-const actualBtn = document.getElementById("passport");
+// const actualBtn = document.getElementById("passport");
 
-const fileChosen = document.getElementById("file-chosen");
+// const fileChosen = document.getElementById("file-chosen");
 
-actualBtn.addEventListener("change", function () {
-  fileChosen.textContent = this.files[0].name;
-});
+// actualBtn.addEventListener("change", function () {
+//   fileChosen.textContent = this.files[0].name;
+// });
 
-//checking for submit event on courses checked
-const coursesForm = document.getElementById("popup-body-courses");
-coursesForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  registerPopup.classList.add("display-active");
-});
+//closing cardoffice icon
+closeicontwo.addEventListener("click", e =>{
+  cardoffice.classList.add("display-active");
+})
+
+cardofficebtn.addEventListener("click",(e)=>{
+  cardoffice.classList.remove("display-active");
+  console.log(e.target)
+})
+

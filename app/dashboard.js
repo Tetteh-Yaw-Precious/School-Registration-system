@@ -5,6 +5,9 @@ const payFeesBtn = document.getElementById("payfees");
 const proceedToPayment = document.getElementById("proceed");
 const payfeepopup = document.getElementById("paymentPopup");
 const amountForm = document.getElementById("amountform");
+const regpopupform = document.getElementById("regpopupform");
+const imageupload = document.getElementById("imageupload-js");
+
 let data;
 let Totalfees;
 let count;
@@ -44,7 +47,9 @@ auth.onAuthStateChanged((user) => {
         //setting localStorage data
         //get their ids and insert the data into them
         document.getElementById("dob").innerHTML = data.dob;
-        document.getElementById("firstName1").innerHTML = data.firstname;
+        document.getElementById(
+          "firstName1"
+        ).innerHTML = `${data.firstname}/${data.indexnumber}/${data.studStatus}`;
         document.getElementById("firstName2").innerHTML = data.firstname;
         document.getElementById("lastName2").innerHTML = data.lastname;
         document.getElementById("otherName").innerHTML = data.othername;
@@ -112,6 +117,7 @@ auth.onAuthStateChanged((user) => {
 
           /**after checking to find out the what 60% is now we are we going to
            * see if the paid fees is >= to 60% of the total fees*/
+
           if (data.paidfees >= requiredpercentage) {
             console.log(data.paidfees);
             document.getElementById("pfeesh6").style.color = "#0fb60c";
@@ -188,6 +194,30 @@ auth.onAuthStateChanged((user) => {
         };
         amountForm.addEventListener("submit", makePayments);
       });
+    regpopupform.addEventListener("submit", (e) => {
+      console.log(e.target);
+      e.preventDefault();
+
+      const file = imageupload.files[0];
+      const name = data.firstname;
+      const metadata = {
+        contentType: file.type,
+      };
+      const postingimage = storage.child(name).put(file, metadata);
+      postingimage
+        .then((snapshot) => snapshot.ref.getDownloadURL())
+        .then((url) => {
+          console.log(url);
+          db.collection("User_Data").doc(user.uid).update({
+            imgURL: url,
+            studStatus: "active",
+          });
+          if (data.studStatus !== null && data.paidfees == data.totalfees) {
+            registerBtn.disabled = true;
+            console.log("done");
+          }
+        });
+    });
   }
 });
 
@@ -221,4 +251,10 @@ amountForm.addEventListener("click", (e) => {
       sidenav.style.animation = " slidein  0.2s forwards";
     }
   }
+
+  //registration popup
 });
+
+var dt = new Date();
+dt.setDate(dt.getDate() + 2);
+console.log(dt)

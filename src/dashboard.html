@@ -27,11 +27,8 @@
           <a href="#" id="payfees" class="payfees"><img src="../assets/creditcards.svg" alt="creditcards" /> Pay
             fees</a>
         </li>
-        <li>
+        <li id="cardofficebtn">
           <a href="#"><img src="../assets/card.svg" alt="" /> Card Office</a>
-        </li>
-        <li>
-          <a href="#"><img src="../assets/card.svg" alt="" /> upload image for card</a>
         </li>
       </ul>
     </nav>
@@ -282,13 +279,7 @@
         </div>
       </div>
       <div class="item button btn-ct">
-        <a href="#" class="btn" id="registerCourses">Register Courses</a>
-        <div class="imageinput">
-          <input type="file" name="studentpassport photo" accept="image/*" id="passport" hidden>
-          <label for="passport"> <img src="/assets/uil_image-upload.svg"> photo for id</label>
-          <span id="file-chosen">No file</span>
-          <input type="submit" value="kjkjkj">
-        </div>
+        <a href="#" class="btn" id="registerCourses">Proceed</a>
       </div>
     </div>
   </div>
@@ -319,32 +310,47 @@
         <h6>Register Courses</h6>
         <a href="#"><img src="../assets/close.svg" alt="close" id="close"></a>
       </div>
-      <div class="item popup-body">
-        <div class="popup-body--title">
-          <h5>Level 100 / first semester</h5>
-        </div>
-        <form class="popup-body-courses" id="popup-body-courses">
+
+      <h2 for="studentId">Computer Science Department  |   Level 100/ Sem. 1</h2>
+      <div class="new">
+        <form id="regpopupform">
           <div class="form-group">
-            <input type="checkbox" id="html">
-            <label for="afs">African Studies</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" id="css">
-            <label for="c++">C++</label>
+            <input type="checkbox" id="africans" required>
+            <label for="africans">African Studies</label>
           </div>
           <div class="form-group">
-            <input type="checkbox" id="javascript">
-            <label for="commskills">Communication Skills</label>
+            <input type="checkbox" id="Vb" required>
+            <label for="Vb" name="Vb">Visual Basic</label>
           </div>
           <div class="form-group">
-            <input type="checkbox" id="Probability">
-            <label for="Probability">Probability and Statistics</label>
+            <input type="checkbox" id="p-stats" required>
+            <label for="p-stats">Probability and statistics</label>
           </div>
-          <div class="btn-ct">
-            <input type="submit" class="btn" value="proceed" />
+          <div class="form-group">
+            <input type="checkbox" id="Commskill" required>
+            <label for="Commskill">Communication skills</label>
           </div>
+          <div class="form-group">
+            <input type="checkbox" id="mathsC" required>
+            <label for="mathsC">Computer Science Maths</label>
+          </div>
+          <h2 class="second">Upload image for student Card</h2>
+          <!--from vendor-->
+          <input name="additem" type="file" accept="image/*" id="imageupload-js" required/>
+          <input name="postitem" type="submit"/>
         </form>
       </div>
+    </div>
+  </div>
+
+  <div class=" cardoffice display-active cardshadow">
+    <div class="iconct">
+      <div class="closeicon"><img src="/assets/closetwo.svg" alt="" id="closeicontwo"></div>
+    </div>
+    <div class="imagect">
+    </div>
+    <div class="forwarddate">
+      <h3 id="dateforcollection"></h3>
     </div>
   </div>
 
@@ -352,6 +358,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
   <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
@@ -369,8 +376,10 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
+    console.log(firebase)
     const db = firebase.firestore();
-    const auth = firebase.auth();
+    const auth = firebase.auth()
+    const storage = firebase.storage().ref();
   </script>
   <script src="../app/index.js"></script>
   <script src="../app/dashboard.js"></script>

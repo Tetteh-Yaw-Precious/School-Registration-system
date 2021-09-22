@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 /*
 0 - 600px: Phone
 600 - 900px: Tablet portrait
@@ -256,7 +257,7 @@ nav .nav-link-ct li a:hover {
 }
 .registerpopup .popup-ct {
   width: 50%;
-  height: 50%;
+  min-height: 70%;
   background: white;
   display: flex;
   flex-direction: column;
@@ -267,7 +268,7 @@ nav .nav-link-ct li a:hover {
   }
 }
 .registerpopup .popup-ct .popup-heading {
-  height: 12%;
+  height: 30%;
   background-color: #596bab;
   display: flex;
   align-items: center;
@@ -284,79 +285,74 @@ nav .nav-link-ct li a:hover {
 .registerpopup .popup-ct .popup-heading a img {
   width: 15%;
   align-self: flex-end;
+  padding: 2rem 0;
 }
-.registerpopup .popup-ct .popup-body {
-  border: 1px solid #596bab;
-  height: 100%;
+.registerpopup .popup-ct h2 {
+  margin-top: 0.625rem;
+  padding: 0 1rem;
+  border-bottom: 0.125rem solid #c3c5cc;
 }
-.registerpopup .popup-ct .popup-body .popup-body--title {
-  padding: 1% 2%;
+.registerpopup .popup-ct .second {
+  border-bottom: 0.1875rem solid #c3c5cc;
+  margin: 0 0 1rem 0;
 }
-.registerpopup .popup-ct .popup-body .popup-body-courses {
-  height: 80%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 1.25rem;
+.registerpopup .popup-ct input[type=text] {
+  margin-top: 0.625rem;
+  padding: 0.625rem 0 0 0.125rem;
 }
-.registerpopup .popup-ct .popup-body .popup-body-courses .form-group {
-  display: block;
-  margin-bottom: 15px;
+.registerpopup .popup-ct input[type=file] {
+  margin-top: 0.625rem;
+  padding: 0.3125rem 0 0 0.125rem;
+  border: none !important;
 }
-.registerpopup .popup-ct .popup-body .popup-body-courses .form-group input {
-  padding: 0;
-  height: initial;
-  width: initial;
-  margin-bottom: 0;
-  display: none;
-  cursor: pointer;
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .form-group label {
-  position: relative;
-  cursor: pointer;
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .form-group label:before {
-  content: "";
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 2px solid #0079bf;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 10px;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  margin-right: 5px;
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .form-group input:checked + label:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 9px;
-  width: 6px;
-  height: 14px;
-  border: solid #0079bf;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 {
-  border: 1px solid red;
-  display: flex;
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 .checkbox {
-  border: 2px solid blue;
-  width: 20%;
-}
-.registerpopup .popup-ct .popup-body .popup-body-courses .course-1 .checkbox input[type=checkbox] {
-  border-radius: 3rem;
-  border: 1px solid blue;
+.registerpopup .popup-ct input[type=submit] {
+  margin-top: 0.625rem;
+  padding: 0.625rem;
+  color: white;
+  border: none !important;
+  background: #596bab;
 }
 .registerpopup .btn-ct {
   width: 100%;
 }
 .registerpopup .btn {
   background-color: #f45110;
+}
+
+.iconct {
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+}
+.iconct img {
+  width: 20%;
+}
+
+.cardoffice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: rgba(195, 197, 204, 0.97);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardoffice .imagect {
+  width: 50%;
+  height: 60%;
+  background: white;
+  border-radius: 0.625rem;
+  background-image: url("/assets/cardready.svg");
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .dashboardflex-ct {
@@ -1110,6 +1106,64 @@ input::-webkit-file-upload-button {
 
 .display-active {
   display: none;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.new {
+  padding: 1.25rem;
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group label:before {
+  content: "";
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.form-group input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #0079bf;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=main.css.map */
