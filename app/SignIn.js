@@ -2,6 +2,7 @@ const mailField = document.querySelector(".emailfield");
 const passwordField = document.querySelector(".passwordfield");
 const loginForm = document.querySelector(".loginform");
 const loadingAnime = document.getElementById("loadingAnimation");
+const alerts = document.querySelector(".alerts");
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -21,5 +22,10 @@ loginForm.addEventListener("submit", (e) => {
         loginForm.reset();
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      alerts.innerHTML = err.message;
+      alerts.style.color = "red";
+      alerts.classList.remove("display-none");
+      console.log(err)
+    });
 });

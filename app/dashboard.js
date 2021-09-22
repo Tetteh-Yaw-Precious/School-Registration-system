@@ -7,6 +7,8 @@ const payfeepopup = document.getElementById("paymentPopup");
 const amountForm = document.getElementById("amountform");
 const regpopupform = document.getElementById("regpopupform");
 const imageupload = document.getElementById("imageupload-js");
+const dateforcollection = document.getElementById("dateforcollection");
+const message = document.getElementById("message");
 
 let data;
 let Totalfees;
@@ -146,6 +148,26 @@ auth.onAuthStateChanged((user) => {
           loadingAnime.classList.add("display-active");
         }, 300);
 
+        if (data.studStatus !== "null") {
+          closeicontwo.addEventListener("click", (e) => {
+            cardoffice.classList.add("display-active");
+          });
+          closeicontwo.addEventListener("click", (e) => {
+            cardoffice.classList.add("display-active");
+          });
+          cardofficebtn.addEventListener("click", (e) => {
+            cardoffice.classList.remove("display-active");
+            var dt = new Date();
+            dt.setDate(dt.getDate() + 2);
+            console.log(dt);
+            message.textContent = `Dear ${data.firstname} your student 
+            card would be ready on:`;
+            dateforcollection.textContent = dt;
+          });
+          registerBtn.disabled = true;
+        }
+        console.log(registerBtn);
+
         const pkey = "FLWPUBK_TEST-bb162b39298e644e1f022c070ca2ad05-X";
         const makePayments = (e) => {
           e.preventDefault();
@@ -212,10 +234,6 @@ auth.onAuthStateChanged((user) => {
             imgURL: url,
             studStatus: "active",
           });
-          if (data.studStatus !== null && data.paidfees == data.totalfees) {
-            registerBtn.disabled = true;
-            console.log("done");
-          }
         });
     });
   }
@@ -254,7 +272,3 @@ amountForm.addEventListener("click", (e) => {
 
   //registration popup
 });
-
-var dt = new Date();
-dt.setDate(dt.getDate() + 2);
-console.log(dt)

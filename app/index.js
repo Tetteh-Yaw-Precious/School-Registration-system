@@ -37,9 +37,7 @@ registerPopup = document.getElementById("regPopup");
 //closing register popup when close icon is click
 const closeicon = document.getElementById("close");
 closeicon.addEventListener("click", () => {
-  cardoffice.classList.toggle("display-active");
-  sidenav.style.animation = " slideout  0.5s forwards";
-  
+  registerPopup.classList.toggle("display-active");
   
 });
 
@@ -53,12 +51,5 @@ closeicon.addEventListener("click", () => {
 // });
 
 //closing cardoffice icon
-closeicontwo.addEventListener("click", e =>{
-  cardoffice.classList.add("display-active");
-})
 
-cardofficebtn.addEventListener("click",(e)=>{
-  cardoffice.classList.remove("display-active");
-  console.log(e.target)
-})
 

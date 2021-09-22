@@ -11,6 +11,7 @@
     integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://checkout.flutterwave.com/v3.js"></script>
+  
 </head>
 
 <body>
@@ -299,7 +300,7 @@
     </form>
   </div>
   <!-- loading animation -->
-  <div class="loadinganimation display-active" id="loadingAnimation">
+  <div class="loadinganimation" id="loadingAnimation">
     <div class="loading " id="loading"></div>
   </div>
 
@@ -350,11 +351,15 @@
     <div class="imagect">
     </div>
     <div class="forwarddate">
+      <h4 id="message"></h4>
       <h3 id="dateforcollection"></h3>
     </div>
   </div>
 
   <!-- update the version number as needed -->
+  <script src="sweetalert2.all.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>

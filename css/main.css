@@ -147,6 +147,26 @@ svg {
   min-height: 100vh;
 }
 
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 0.9rem;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 0.9rem;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 0.9rem;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 0.9rem;
+}
+
 @keyframes slidefrombottom {
   0% {
     transform: translateY(0.9375rem);
@@ -353,6 +373,20 @@ nav .nav-link-ct li a:hover {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+}
+
+.forwarddate {
+  width: 60%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.625rem;
+}
+.forwarddate h3 {
+  width: 100%;
+  text-align: center;
 }
 
 .dashboardflex-ct {
